@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>AngularJs example</title>
+	<link rel="stylesheet" type="text/css" href="AngularJs.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="AngularJs.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+<body ng-app="formone" ng-init="data='anusha'">
+	<h1>Creative writing</h1>
+	
+	<!--image-->
+	
+	<div >
+	<img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDcU151UvV-zA5YZ5u7ZplDP2h_OO1FYsgAeXVB3sCj9GrztNw" >
+	</div>
+
+	<h2><b>Write whatever you think by watching this image </b></h2>
+	<!--controller -->
+	<div ng-controller="controller1">
+		<input type="text" ng-model="data" class="cw" >
+		<p>{{type.getText()|uppercase}}</p>
+		<ul>
+			<li ng-repeat="list in type.college">
+				{{list.name|uppercase}}:{{list.group}}
+			</li>
+		</ul>
+	<!--table using controller-->
+	<table >
+		<tr><th>NAME</th><th>GROUP</th></tr>
+		<tr ng-repeat="yam in type.college">
+			<td>{{yam.name|uppercase}}</td>
+			<td>{{yam.group}}</td>
+		</tr>
+	</table>
+	</div>
+
+	<!--REGISTRATION FORM-->
+	<div class="register">
+		<h2> Register here if you like this creative writing and to partcipate daily in this event</h2>
+		<form  method="put" action="">
+			<label>Name</label><input type="text"><br>
+			<label>age</label><input type="number"><br>
+			<label>if you are graduate fill this form or click the button below</label><br>
+			Not a graduate<input type="checkbox" ng-model="selected">Not a graduate<br>
+			<label>degree</label><input type="text" ng-hide="selected"><br>
+			<label>passed out year</label><input type="number" ng-hide="selected"><br>
+			<button type="click">save</button>
+		</form>
+		<label>If you like our website please like here</label>
+		<icon class="glyphicon glyphicon-thumbs-up" ng-click="clickcounter=clickcounter+1" > viewers likes {{clickcounter}}</icon>
+
+	</div>
+
+	
+
+</body>
+</html>

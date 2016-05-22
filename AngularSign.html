@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>loginpage</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script   src="https://code.jquery.com/jquery-2.2.2.min.js" ></script>
+	<script>
+			var mainApp=angular.module('mainApp',[]);
+				mainApp.controller('ctrl',function($scope){
+						$scope.reset=function(){
+							$scope.fname="FirstName";
+							$scope.lname="LastName";
+							$scope.email="Email";	
+						}
+						$.scope.reset();
+				});
+	</script>
+</head>
+<body ng-app="mainApp" ng-controller="ctrl" >
+	<form name="loginForm" novalidate>
+		<input type="text" placeholder="fname" name="fname" ng-model="fname" required>
+		<span style="color:red" ng-show="loginForm.fname.$dirty&&loginForm.fname.$invalid" >
+			<span ng-show="loginForm.fname.$error.required">please enter your first name</span>
+		</span>	
+		<input type="text" placeholder="lname" name="lname" ng-model="lname" required>
+		<input type="email" placeholder="email" name="email" ng-model="email" required>
+		<span style="color:red" ng-show="loginForm.email.$dirty&&loginForm.email.$invalid" >
+			<span ng-show="loginForm.lname.$error.required">please enter your email id</span>
+		</span>
+		<span style="color:red" ng-show="loginForm.email.$dirty&&loginForm.email.$invalid">
+			<span ng-show="loginForm.fname.$error.email">please enter your valid email id</span></span>	
+		<button type="button" ng-click="reset()">click</button>
+	</form>
+
+</body>
+</html>
